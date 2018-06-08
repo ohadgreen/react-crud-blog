@@ -10,6 +10,7 @@ import PostsNew from './components/posts_new';
 import PostsShow from './components/posts_show';
 import reducers from './reducers';
 
+
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
 ReactDOM.render(
