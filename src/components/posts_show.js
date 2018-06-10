@@ -5,8 +5,8 @@ import { fetchPost, deletePost } from '../actions/index';
 
 class PostsShow extends Component {
     componentDidMount() {
-        const { id } = this.props.match.params;
-        this.props.fetchPost(id); 
+        const { _id } = this.props.match.params;
+        this.props.fetchPost(_id); 
         // console.log(this.props); // this doesn't return a post but a promise
     }
 
@@ -32,7 +32,7 @@ class PostsShow extends Component {
                 onClick={this.onDeleteClick.bind(this)}
             >Delete Post</button>
             <h3>{post.title}</h3>
-            <h6>Categories: {post.categories}</h6>
+            <h6>Categories: {post.category}</h6>
             <p>{post.content}</p>
         </div>
         );
@@ -40,7 +40,7 @@ class PostsShow extends Component {
 }
 
 function mapStateToProps({ posts }, ownProps) {
-    return { post: posts[ownProps.match.params.id] };
+    return { post: posts[ownProps.match.params._id] };
 }
 
 export default connect(mapStateToProps, { fetchPost, deletePost })(PostsShow);

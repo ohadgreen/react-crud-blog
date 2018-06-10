@@ -10,10 +10,11 @@ class PostsIndex extends React.Component {
     }
 
     renderPostsWithLodash() { // now we have an object so we can't use js map, instead use lodash map
+        console.log(this.props.posts);
         return _.map(this.props.posts, post => {
             return (
-                <li className="list-group-item" key={post.id}>
-                    <Link to={`/posts/${post.id}`}>
+                <li className="list-group-item" key={post._id}>
+                    <Link to={`/posts/${post._id}`}>
                         {post.title}
                     </Link> 
                 </li>
@@ -24,8 +25,8 @@ class PostsIndex extends React.Component {
     renderPosts() {
         return this.props.posts.map((post) => { // js map, good for arrays
             return (
-                <li className="list-group-item" key={post.id}>
-                    <Link to={`/posts/${post.id}`}>
+                <li className="list-group-item" key={post._id}>
+                    <Link to={`/posts/${post._id}`}>
                     {post.title}
                     </Link>                    
                 </li>
