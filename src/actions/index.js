@@ -10,7 +10,7 @@ export const DELETE_POST = 'delete_post';
 const ROOT_URL = "http://localhost:3000/api";
 
 export function fetchPosts() {
-    const request = axios.get(`${ROOT_URL}/blogs`);
+    const request = axios.get(`${ROOT_URL}/blogs`);        
     return {
         type: FETCH_POSTS,
         payload: request
@@ -26,8 +26,10 @@ export function createPost(values, callback) {
     };
 }
 
-export function fetchPost(_id) {
-    const request = axios.get(`${ROOT_URL}/blogs/${_id}`);
+export function fetchPost(id) {
+    let fetchPostUrl = `${ROOT_URL}/blogs/${id}`;
+    console.log("fetch url: " + fetchPostUrl);
+    const request = axios.get(fetchPostUrl);
     return {
         type: FETCH_POST,
         payload: request

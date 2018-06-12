@@ -5,8 +5,8 @@ import { fetchPost, deletePost } from '../actions/index';
 
 class PostsShow extends Component {
     componentDidMount() {
-        const { _id } = this.props.match.params;
-        this.props.fetchPost(_id); 
+        const { id } = this.props.match.params;
+        this.props.fetchPost(id); 
         // console.log(this.props); // this doesn't return a post but a promise
     }
 

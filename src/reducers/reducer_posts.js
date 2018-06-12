@@ -13,7 +13,7 @@ export default function (state = {}, action) { // initial state is an empty obje
             return { ...state, [action.payload.data.id]: action.payload.data };
 
         case FETCH_POSTS:
-            return _.mapKeys(action.payload.data, 'id'); // lodash magic that turns array to object with mapped keys
+            return _.mapKeys(action.payload.data, '_id'); // lodash magic that turns array to object with mapped keys
         
         case DELETE_POST:
             return _.omit(state, action.payload); // lodash: if the state has the payload (id) then remove it from the state
